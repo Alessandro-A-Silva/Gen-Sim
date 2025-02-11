@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gen_Sim.Model
 {
-    public class Cep
+    public class Endrecos
     {
         public string cep { get; set; }
         public string logradouro { get; set; }
@@ -23,13 +23,13 @@ namespace Gen_Sim.Model
         public string ddd { get; set; }
         public string siafi { get; set; }
 
-        public async Task<Cep> GetEndereco(string cep)
+        public async Task<Endrecos> GetEndereco(string cep)
         {
             var client = new HttpClient();
             var response = await client.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
             if (response.IsSuccessStatusCode)
             {
-                Cep viaCep = await response.Content.ReadFromJsonAsync<Cep>();
+                Endrecos viaCep = await response.Content.ReadFromJsonAsync<Endrecos>();
                 return viaCep;
             }
             return null;
