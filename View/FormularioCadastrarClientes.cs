@@ -42,11 +42,13 @@ namespace Gen_Sim.View
             if(MtbCep.Text.Length == 8)
             {
                 var endereco = await _cepController.GetEndereco(MtbCep.Text);
-                TbLogradouro.Text = endereco.logradouro;
-                TbBairro.Text = endereco.bairro;
-                TbCidade.Text = endereco.localidade;
-                CbEstado.Text = endereco.estado;
-
+                if(endereco != null)
+                {
+                    TbLogradouro.Text = endereco.logradouro;
+                    TbBairro.Text = endereco.bairro;
+                    TbCidade.Text = endereco.localidade;
+                    CbEstado.Text = endereco.estado;
+                }
             }
         }
     }
