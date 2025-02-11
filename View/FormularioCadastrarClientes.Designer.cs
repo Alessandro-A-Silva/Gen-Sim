@@ -41,12 +41,16 @@
             LbEstado = new Label();
             CbEstado = new ComboBox();
             GbCadastrarClientes = new GroupBox();
+            BtnCancelar = new Button();
+            BtnCadastrar = new Button();
+            maskedTextBox1 = new MaskedTextBox();
+            LbInscricaoEstadual = new Label();
+            label1 = new Label();
             MtbDocumento = new MaskedTextBox();
             LbDocumento = new Label();
             GbTipoDocumento = new GroupBox();
             RbCPF = new RadioButton();
             RbCNPJ = new RadioButton();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)NudNumero).BeginInit();
             GbCadastrarClientes.SuspendLayout();
             GbTipoDocumento.SuspendLayout();
@@ -173,6 +177,10 @@
             // 
             // GbCadastrarClientes
             // 
+            GbCadastrarClientes.Controls.Add(BtnCancelar);
+            GbCadastrarClientes.Controls.Add(BtnCadastrar);
+            GbCadastrarClientes.Controls.Add(maskedTextBox1);
+            GbCadastrarClientes.Controls.Add(LbInscricaoEstadual);
             GbCadastrarClientes.Controls.Add(label1);
             GbCadastrarClientes.Controls.Add(MtbDocumento);
             GbCadastrarClientes.Controls.Add(LbDocumento);
@@ -192,17 +200,74 @@
             GbCadastrarClientes.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             GbCadastrarClientes.Location = new Point(12, 12);
             GbCadastrarClientes.Name = "GbCadastrarClientes";
-            GbCadastrarClientes.Size = new Size(838, 489);
+            GbCadastrarClientes.Size = new Size(838, 253);
             GbCadastrarClientes.TabIndex = 0;
             GbCadastrarClientes.TabStop = false;
             GbCadastrarClientes.Text = "Cadastro de cliente";
+            // 
+            // BtnCancelar
+            // 
+            BtnCancelar.BackColor = Color.DarkRed;
+            BtnCancelar.FlatStyle = FlatStyle.Flat;
+            BtnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnCancelar.ForeColor = Color.White;
+            BtnCancelar.Location = new Point(239, 200);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(227, 44);
+            BtnCancelar.TabIndex = 25;
+            BtnCancelar.Text = "Cancelar";
+            BtnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // BtnCadastrar
+            // 
+            BtnCadastrar.BackColor = Color.ForestGreen;
+            BtnCadastrar.FlatStyle = FlatStyle.Flat;
+            BtnCadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnCadastrar.ForeColor = Color.White;
+            BtnCadastrar.Location = new Point(6, 200);
+            BtnCadastrar.Name = "BtnCadastrar";
+            BtnCadastrar.Size = new Size(227, 44);
+            BtnCadastrar.TabIndex = 24;
+            BtnCadastrar.Text = "Cadastrar";
+            BtnCadastrar.UseVisualStyleBackColor = false;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            maskedTextBox1.Location = new Point(623, 165);
+            maskedTextBox1.Mask = "00.000.0000-0";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(122, 29);
+            maskedTextBox1.TabIndex = 23;
+            maskedTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // LbInscricaoEstadual
+            // 
+            LbInscricaoEstadual.AutoSize = true;
+            LbInscricaoEstadual.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbInscricaoEstadual.ForeColor = Color.Black;
+            LbInscricaoEstadual.Location = new Point(623, 141);
+            LbInscricaoEstadual.Name = "LbInscricaoEstadual";
+            LbInscricaoEstadual.Size = new Size(113, 21);
+            LbInscricaoEstadual.TabIndex = 22;
+            LbInscricaoEstadual.Text = "Insc. Estadual";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(594, 141);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 21);
+            label1.TabIndex = 20;
             // 
             // MtbDocumento
             // 
             MtbDocumento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MtbDocumento.Location = new Point(431, 165);
             MtbDocumento.Name = "MtbDocumento";
-            MtbDocumento.Size = new Size(157, 29);
+            MtbDocumento.Size = new Size(186, 29);
             MtbDocumento.TabIndex = 19;
             MtbDocumento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -253,23 +318,16 @@
             RbCNPJ.UseVisualStyleBackColor = true;
             RbCNPJ.CheckedChanged += RbCNPJ_CheckedChanged;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(594, 141);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 21);
-            label1.TabIndex = 20;
-            // 
             // FormularioCadastrarClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 513);
+            ClientSize = new Size(862, 272);
             Controls.Add(GbCadastrarClientes);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FormularioCadastrarClientes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de cliente";
             Load += FormularioCadastrarClientes_Load;
             ((System.ComponentModel.ISupportInitialize)NudNumero).EndInit();
@@ -302,5 +360,9 @@
         private RadioButton RbCPF;
         private RadioButton RbCNPJ;
         private Label label1;
+        private Button BtnCadastrar;
+        private MaskedTextBox maskedTextBox1;
+        private Label LbInscricaoEstadual;
+        private Button BtnCancelar;
     }
 }
