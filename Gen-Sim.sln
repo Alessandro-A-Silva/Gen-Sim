@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gen-Sim", "Gen-Sim.csproj", "{C8B38D75-6301-41F7-B770-A185156FBEBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8B38D75-6301-41F7-B770-A185156FBEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B38D75-6301-41F7-B770-A185156FBEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B38D75-6301-41F7-B770-A185156FBEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B38D75-6301-41F7-B770-A185156FBEBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E53E4561-038D-4760-A64E-EA7CF06DC3C4}
+	EndGlobalSection
+EndGlobal
