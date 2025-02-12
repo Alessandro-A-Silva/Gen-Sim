@@ -9,10 +9,10 @@ namespace Gen_Sim.Controller
 {
     public class EnderecosController
     {
-        private Endrecos _endereco;
-        public EnderecosController() => _endereco = new Endrecos();
+        private Enderecos _endereco;
+        public EnderecosController(Enderecos enderecos) => _endereco = enderecos;
 
-        public async Task<Endrecos> GetEndereco(string cep)
+        public async Task<Enderecos> GetEndereco(string cep)
         {
             return await _endereco.GetEndereco(cep);
         }

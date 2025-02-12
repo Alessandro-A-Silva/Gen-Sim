@@ -14,10 +14,10 @@ namespace Gen_Sim.View
     public partial class FormularioCadastrarClientes : Form
     {
         private EnderecosController _cepController;
-        public FormularioCadastrarClientes()
+        public FormularioCadastrarClientes(EnderecosController enderecosController)
         {
             InitializeComponent();
-            _cepController = new EnderecosController();
+            _cepController = enderecosController;
         }
 
         private void FormularioCadastrarClientes_Load(object sender, EventArgs e)

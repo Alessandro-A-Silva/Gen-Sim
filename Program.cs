@@ -1,3 +1,5 @@
+using Gen_Sim.Controller;
+using Gen_Sim.Model;
 using Gen_Sim.View;
 
 namespace Gen_Sim
@@ -13,7 +15,8 @@ namespace Gen_Sim
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormularioCadastrarClientes());
+            FormularioCadastrarClientes formularioCadastrarClientes = new FormularioCadastrarClientes(new EnderecosController(new Enderecos()));
+            Application.Run(new FormularioPrincipal(formularioCadastrarClientes));
         }
     }
 }
