@@ -41,8 +41,14 @@
             LbEstado = new Label();
             CbEstado = new ComboBox();
             GbCadastrarClientes = new GroupBox();
+            MtbWhatssap = new MaskedTextBox();
+            LbWhatssap = new Label();
+            MtbTelefone = new MaskedTextBox();
+            LbTelefone = new Label();
+            LbCidade = new Label();
+            TbEmail = new TextBox();
+            LbEmail = new Label();
             TbCidade = new TextBox();
-            label2 = new Label();
             BtnCancelar = new Button();
             BtnCadastrar = new Button();
             MtbInscricaoEstadual = new MaskedTextBox();
@@ -102,7 +108,7 @@
             // 
             LbLogradouro.AutoSize = true;
             LbLogradouro.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LbLogradouro.ForeColor = Color.Red;
+            LbLogradouro.ForeColor = Color.Black;
             LbLogradouro.Location = new Point(115, 85);
             LbLogradouro.Name = "LbLogradouro";
             LbLogradouro.Size = new Size(99, 21);
@@ -180,8 +186,14 @@
             // 
             // GbCadastrarClientes
             // 
+            GbCadastrarClientes.Controls.Add(MtbWhatssap);
+            GbCadastrarClientes.Controls.Add(LbWhatssap);
+            GbCadastrarClientes.Controls.Add(MtbTelefone);
+            GbCadastrarClientes.Controls.Add(LbTelefone);
+            GbCadastrarClientes.Controls.Add(LbCidade);
+            GbCadastrarClientes.Controls.Add(TbEmail);
+            GbCadastrarClientes.Controls.Add(LbEmail);
             GbCadastrarClientes.Controls.Add(TbCidade);
-            GbCadastrarClientes.Controls.Add(label2);
             GbCadastrarClientes.Controls.Add(BtnCancelar);
             GbCadastrarClientes.Controls.Add(BtnCadastrar);
             GbCadastrarClientes.Controls.Add(MtbInscricaoEstadual);
@@ -204,10 +216,82 @@
             GbCadastrarClientes.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             GbCadastrarClientes.Location = new Point(12, 12);
             GbCadastrarClientes.Name = "GbCadastrarClientes";
-            GbCadastrarClientes.Size = new Size(896, 308);
+            GbCadastrarClientes.Size = new Size(840, 367);
             GbCadastrarClientes.TabIndex = 0;
             GbCadastrarClientes.TabStop = false;
             GbCadastrarClientes.Text = "Cadastro de cliente";
+            // 
+            // MtbWhatssap
+            // 
+            MtbWhatssap.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MtbWhatssap.Location = new Point(134, 279);
+            MtbWhatssap.Mask = "(00) 0 0000-0000";
+            MtbWhatssap.Name = "MtbWhatssap";
+            MtbWhatssap.Size = new Size(122, 29);
+            MtbWhatssap.TabIndex = 35;
+            MtbWhatssap.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // LbWhatssap
+            // 
+            LbWhatssap.AutoSize = true;
+            LbWhatssap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbWhatssap.ForeColor = Color.Red;
+            LbWhatssap.Location = new Point(134, 255);
+            LbWhatssap.Name = "LbWhatssap";
+            LbWhatssap.Size = new Size(84, 21);
+            LbWhatssap.TabIndex = 34;
+            LbWhatssap.Text = "Whatssap";
+            // 
+            // MtbTelefone
+            // 
+            MtbTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MtbTelefone.Location = new Point(6, 279);
+            MtbTelefone.Mask = "(00) 0 0000-0000";
+            MtbTelefone.Name = "MtbTelefone";
+            MtbTelefone.Size = new Size(122, 29);
+            MtbTelefone.TabIndex = 33;
+            MtbTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // LbTelefone
+            // 
+            LbTelefone.AutoSize = true;
+            LbTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbTelefone.ForeColor = Color.Black;
+            LbTelefone.Location = new Point(7, 255);
+            LbTelefone.Name = "LbTelefone";
+            LbTelefone.Size = new Size(76, 21);
+            LbTelefone.TabIndex = 32;
+            LbTelefone.Text = "Telefone";
+            // 
+            // LbCidade
+            // 
+            LbCidade.AutoSize = true;
+            LbCidade.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbCidade.ForeColor = Color.Red;
+            LbCidade.Location = new Point(267, 141);
+            LbCidade.Name = "LbCidade";
+            LbCidade.Size = new Size(63, 21);
+            LbCidade.TabIndex = 31;
+            LbCidade.Text = "Cidade";
+            // 
+            // TbEmail
+            // 
+            TbEmail.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbEmail.Location = new Point(134, 223);
+            TbEmail.Name = "TbEmail";
+            TbEmail.Size = new Size(698, 29);
+            TbEmail.TabIndex = 30;
+            // 
+            // LbEmail
+            // 
+            LbEmail.AutoSize = true;
+            LbEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LbEmail.ForeColor = Color.Black;
+            LbEmail.Location = new Point(134, 199);
+            LbEmail.Name = "LbEmail";
+            LbEmail.Size = new Size(59, 21);
+            LbEmail.TabIndex = 29;
+            LbEmail.Text = "E-Mail";
             // 
             // TbCidade
             // 
@@ -217,24 +301,13 @@
             TbCidade.Size = new Size(209, 29);
             TbCidade.TabIndex = 27;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Red;
-            label2.Location = new Point(267, 141);
-            label2.Name = "label2";
-            label2.Size = new Size(63, 21);
-            label2.TabIndex = 26;
-            label2.Text = "Cidade";
-            // 
             // BtnCancelar
             // 
             BtnCancelar.BackColor = Color.DarkRed;
             BtnCancelar.FlatStyle = FlatStyle.Flat;
             BtnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnCancelar.ForeColor = Color.White;
-            BtnCancelar.Location = new Point(243, 258);
+            BtnCancelar.Location = new Point(239, 314);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(227, 44);
             BtnCancelar.TabIndex = 25;
@@ -247,17 +320,18 @@
             BtnCadastrar.FlatStyle = FlatStyle.Flat;
             BtnCadastrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnCadastrar.ForeColor = Color.White;
-            BtnCadastrar.Location = new Point(10, 258);
+            BtnCadastrar.Location = new Point(6, 314);
             BtnCadastrar.Name = "BtnCadastrar";
             BtnCadastrar.Size = new Size(227, 44);
             BtnCadastrar.TabIndex = 24;
             BtnCadastrar.Text = "Cadastrar";
             BtnCadastrar.UseVisualStyleBackColor = false;
+            BtnCadastrar.Click += BtnCadastrar_Click;
             // 
             // MtbInscricaoEstadual
             // 
             MtbInscricaoEstadual.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MtbInscricaoEstadual.Location = new Point(10, 223);
+            MtbInscricaoEstadual.Location = new Point(6, 223);
             MtbInscricaoEstadual.Mask = "00.000.0000-0";
             MtbInscricaoEstadual.Name = "MtbInscricaoEstadual";
             MtbInscricaoEstadual.Size = new Size(122, 29);
@@ -269,7 +343,7 @@
             LbInscricaoEstadual.AutoSize = true;
             LbInscricaoEstadual.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LbInscricaoEstadual.ForeColor = Color.Black;
-            LbInscricaoEstadual.Location = new Point(10, 199);
+            LbInscricaoEstadual.Location = new Point(6, 199);
             LbInscricaoEstadual.Name = "LbInscricaoEstadual";
             LbInscricaoEstadual.Size = new Size(113, 21);
             LbInscricaoEstadual.TabIndex = 22;
@@ -335,7 +409,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(920, 326);
+            ClientSize = new Size(856, 386);
             Controls.Add(GbCadastrarClientes);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -353,7 +427,6 @@
 
         #endregion
         private TextBox TbCidade;
-        private Label LbCidade;
         private Label LbNome;
         private TextBox TbNome;
         private Label LbCep;
@@ -372,11 +445,16 @@
         private Label LbDocumento;
         private RadioButton RbCPF;
         private RadioButton RbCNPJ;
-        private Label label1;
         private Button BtnCadastrar;
         private MaskedTextBox MtbInscricaoEstadual;
         private Label LbInscricaoEstadual;
         private Button BtnCancelar;
-        private Label label2;
+        private TextBox TbEmail;
+        private Label LbEmail;
+        private Label LbCidade;
+        private MaskedTextBox MtbWhatssap;
+        private Label LbWhatssap;
+        private MaskedTextBox MtbTelefone;
+        private Label LbTelefone;
     }
 }

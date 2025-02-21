@@ -1,4 +1,5 @@
 ﻿using Gen_Sim.Controller;
+using Gen_Sim.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,11 @@ namespace Gen_Sim.View
 {
     public partial class FormularioCadastrarClientes : Form
     {
-        private EnderecosController _cepController;
-        public FormularioCadastrarClientes(EnderecosController enderecosController)
+        private EnderecosController _enderecoController = new EnderecosController();
+        private ClientesController _clientesController = new ClientesController();
+        public FormularioCadastrarClientes()
         {
             InitializeComponent();
-            _cepController = enderecosController;
         }
 
         private void FormularioCadastrarClientes_Load(object sender, EventArgs e)
@@ -39,17 +40,61 @@ namespace Gen_Sim.View
 
         private async void MtbCep_TextChanged(object sender, EventArgs e)
         {
-            if(MtbCep.Text.Length == 8)
+            if (MtbCep.Text.Length == 8)
             {
-                var endereco = await _cepController.GetEndereco(MtbCep.Text);
-                if(endereco != null)
-                {
-                    TbLogradouro.Text = endereco.logradouro;
-                    TbBairro.Text = endereco.bairro;
-                    TbCidade.Text = endereco.localidade;
-                    CbEstado.Text = endereco.estado;
-                }
+                var endereco = await _enderecoController.ReadByCep(MtbCep.Text);
+
+                TbLogradouro.Text = endereco.logradouro;
+                TbBairro.Text = endereco.bairro;
+                TbCidade.Text = endereco.localidade;
+                CbEstado.Text = endereco.estado;
             }
+        }
+
+        private void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var cliente = new ClientesDto()
+                {
+                    Nome = TbNome.Text,
+                    Cep = MtbCep.Text,
+                    Logradouro = TbLogradouro.Text,
+                    Numero = (int)NudNumero.Value,
+                    Bairro = TbBairro.Text,
+                    Estado = CbEstado.Text,
+                    CnpjCpf = MtbDocumento.Text,
+                    InscricaoEstadual = MtbInscricaoEstadual.Text,
+                    Email = TbEmail.Text,
+                    Cidade = TbCidade.Text,
+                    Telefone = MtbTelefone.Text,
+                    Whatssap = MtbWhatssap.Text
+                };
+                if(_clientesController.Create(cliente))
+                    ClearFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao registrar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+          
+        }
+
+        private void ClearFields()
+        {
+            TbNome.Clear();
+            MtbCep.Clear();
+            TbLogradouro.Clear();
+            NudNumero.Value = 0;
+            TbBairro.Clear();
+            CbEstado.SelectedIndex = -1;
+            RbCNPJ.Checked = true;
+            MtbDocumento.Clear();
+            MtbInscricaoEstadual.Clear();
+            TbEmail.Clear();
+            TbCidade.Clear();
+            MtbTelefone.Clear();
+            MtbWhatssap.Clear();
         }
     }
 }

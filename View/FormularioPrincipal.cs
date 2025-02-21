@@ -12,11 +12,10 @@ namespace Gen_Sim.View
 {
     public partial class FormularioPrincipal : Form
     {
-        private FormularioCadastrarClientes _formularioCadastrarClientes;
-        public FormularioPrincipal(FormularioCadastrarClientes formularioCadastrarClientes)
+        private FormularioCadastrarClientes _formularioCadastrarClientes = new FormularioCadastrarClientes();
+        public FormularioPrincipal()
         {
             InitializeComponent();
-            _formularioCadastrarClientes = formularioCadastrarClientes;
         }
 
         private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)

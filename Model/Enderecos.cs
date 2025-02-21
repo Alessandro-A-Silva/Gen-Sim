@@ -22,17 +22,26 @@ namespace Gen_Sim.Model
         public string gia { get; set; }
         public string ddd { get; set; }
         public string siafi { get; set; }
-
-        public async Task<Enderecos> GetEndereco(string cep)
+       
+        public async Task<Enderecos> ReadByCep(string cep)
         {
-            var client = new HttpClient();
-            var response = await client.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
-            if (response.IsSuccessStatusCode)
+            var endereco = new Enderecos();
+            try
             {
-                Enderecos viaCep = await response.Content.ReadFromJsonAsync<Enderecos>();
-                return viaCep;
+                using(var client = new HttpClient())
+                {
+                    var response = await client.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        endereco = await response.Content.ReadFromJsonAsync<Enderecos>();
+                    }
+                }
             }
-            return null;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar por cep! " + ex.Message, "Dados de Endereço", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return endereco;
         }
     }
 }
