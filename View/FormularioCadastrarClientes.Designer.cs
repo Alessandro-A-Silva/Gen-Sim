@@ -213,13 +213,14 @@
             GbCadastrarClientes.Controls.Add(LbCep);
             GbCadastrarClientes.Controls.Add(TbNome);
             GbCadastrarClientes.Controls.Add(LbNome);
+            GbCadastrarClientes.Dock = DockStyle.Fill;
             GbCadastrarClientes.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GbCadastrarClientes.Location = new Point(12, 12);
+            GbCadastrarClientes.Location = new Point(0, 0);
             GbCadastrarClientes.Name = "GbCadastrarClientes";
-            GbCadastrarClientes.Size = new Size(840, 367);
+            GbCadastrarClientes.Size = new Size(856, 386);
             GbCadastrarClientes.TabIndex = 0;
             GbCadastrarClientes.TabStop = false;
-            GbCadastrarClientes.Text = "Cadastro de cliente";
+            GbCadastrarClientes.Text = "Cadastro de clientes";
             // 
             // MtbWhatssap
             // 

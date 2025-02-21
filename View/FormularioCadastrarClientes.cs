@@ -29,7 +29,7 @@ namespace Gen_Sim.View
         private void RbCNPJ_CheckedChanged(object sender, EventArgs e)
         {
             if (RbCNPJ.Checked)
-                MtbDocumento.Mask = "00.000.00/0000-00";
+                MtbDocumento.Mask = "00.000.000/0000-00";
         }
 
         private void RbCPF_CheckedChanged(object sender, EventArgs e)

@@ -1,5 +1,7 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using Gen_Sim.Dto;
+using Gen_Sim.Mapper;
 using Gen_Sim.Model;
 using Gen_Sim.Validation;
 using System;
@@ -12,9 +14,15 @@ namespace Gen_Sim.Controller
 {
     public class ClientesController
     {   
-        private Clientes _cliente;
+        private Clientes? _cliente;
         private readonly IValidator<Clientes> _clientesValidator;
-        public ClientesController() => _clientesValidator = new ClientesValidator();
+        IMapper _mapper;
+        public ClientesController()
+        {
+            _clientesValidator = new ClientesValidator();
+            MapperConfiguration _mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<MappingProfile>());
+            _mapper = _mapperConfiguration.CreateMapper();
+        } 
         public bool Create(ClientesDto dto)
         {   
             _cliente = new Clientes()
@@ -44,6 +52,45 @@ namespace Gen_Sim.Controller
             }
             else
                 return _cliente.Create();
+        }
+
+        public List<ClientesDto> ReadAll()
+        {
+            _cliente = new Clientes();
+            return _mapper.Map<List<ClientesDto>>(_cliente.ReadAll());
+            //var listClientes = _cliente.ReadAll();
+
+            //List<ClientesDto> listClientesDto = listClientes.Select(cliente => new ClientesDto()
+            //{
+            //   Id = cliente.Id,
+            //   Bairro = cliente.Bairro,
+            //   CnpjCpf = cliente.CnpjCpf,
+            //   Email = cliente.Email,
+            //   Estado = cliente.Estado,
+            //   InscricaoEstadual = cliente.InscricaoEstadual,
+            //   Logradouro = cliente.Logradouro,
+            //   Nome = cliente.Nome,
+            //   Numero = cliente.Numero,
+            //   Cidade = cliente.Cidade,
+            //   Telefone = cliente.Telefone, 
+            //   Whatssap = cliente.Whatssap
+            //}).ToList();
+
+            //return listClientes.Select(cliente => new ClientesDto()
+            //{
+            //    Id = cliente.Id,
+            //    Bairro = cliente.Bairro,
+            //    CnpjCpf = cliente.CnpjCpf,
+            //    Email = cliente.Email,
+            //    Estado = cliente.Estado,
+            //    InscricaoEstadual = cliente.InscricaoEstadual,
+            //    Logradouro = cliente.Logradouro,
+            //    Nome = cliente.Nome,
+            //    Numero = cliente.Numero,
+            //    Cidade = cliente.Cidade,
+            //    Telefone = cliente.Telefone,
+            //    Whatssap = cliente.Whatssap
+            //}).ToList();
         }
     }
 }

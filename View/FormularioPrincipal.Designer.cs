@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            MstMenuPrincipal = new MenuStrip();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             cadastroToolStripMenuItem = new ToolStripMenuItem();
             consultaToolStripMenuItem = new ToolStripMenuItem();
             atualizarToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1.SuspendLayout();
+            MstMenuPrincipal.SuspendLayout();
             SuspendLayout();
             // 
-            // menuStrip1
+            // MstMenuPrincipal
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { clientesToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
+            MstMenuPrincipal.Items.AddRange(new ToolStripItem[] { clientesToolStripMenuItem });
+            MstMenuPrincipal.Location = new Point(0, 0);
+            MstMenuPrincipal.Name = "MstMenuPrincipal";
+            MstMenuPrincipal.Size = new Size(800, 24);
+            MstMenuPrincipal.TabIndex = 0;
+            MstMenuPrincipal.Text = "menuStrip1";
             // 
             // clientesToolStripMenuItem
             // 
@@ -55,20 +55,21 @@
             // cadastroToolStripMenuItem
             // 
             cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
-            cadastroToolStripMenuItem.Size = new Size(180, 22);
+            cadastroToolStripMenuItem.Size = new Size(125, 22);
             cadastroToolStripMenuItem.Text = "Cadastrar";
             cadastroToolStripMenuItem.Click += cadastroToolStripMenuItem_Click;
             // 
             // consultaToolStripMenuItem
             // 
             consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            consultaToolStripMenuItem.Size = new Size(180, 22);
+            consultaToolStripMenuItem.Size = new Size(125, 22);
             consultaToolStripMenuItem.Text = "Consultar";
+            consultaToolStripMenuItem.Click += consultaToolStripMenuItem_Click;
             // 
             // atualizarToolStripMenuItem
             // 
             atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
-            atualizarToolStripMenuItem.Size = new Size(180, 22);
+            atualizarToolStripMenuItem.Size = new Size(125, 22);
             atualizarToolStripMenuItem.Text = "Atualizar";
             // 
             // FormularioPrincipal
@@ -76,19 +77,22 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
+            Controls.Add(MstMenuPrincipal);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MainMenuStrip = MstMenuPrincipal;
+            MaximizeBox = false;
             Name = "FormularioPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormularioPrincipal";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            MstMenuPrincipal.ResumeLayout(false);
+            MstMenuPrincipal.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private MenuStrip menuStrip1;
+        private MenuStrip MstMenuPrincipal;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem cadastroToolStripMenuItem;
         private ToolStripMenuItem consultaToolStripMenuItem;
