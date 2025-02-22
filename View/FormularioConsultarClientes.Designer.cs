@@ -103,6 +103,7 @@
             BtnPesquisar.TabIndex = 25;
             BtnPesquisar.Text = "Pesquisar";
             BtnPesquisar.UseVisualStyleBackColor = false;
+            BtnPesquisar.Click += BtnPesquisar_Click;
             // 
             // MtbDocumento
             // 

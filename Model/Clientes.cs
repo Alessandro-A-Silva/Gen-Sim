@@ -68,36 +68,47 @@ namespace Gen_Sim.Model
         public List<Clientes> ReadAll()
         {
             var listClientes = new List<Clientes>();
-            using(var connectionString = new SqliteConnection(DbContext.ConnectionString))
-            {   
-                connectionString.Open();
-                string query = @"SELECT * FROM Clientes";
-                using(SqliteCommand command = new SqliteCommand(query, connectionString))
+            try
+            {
+                using (var connectionString = new SqliteConnection(DbContext.ConnectionString))
                 {
-                    using (SqliteDataReader reader = command.ExecuteReader())
+                    connectionString.Open();
+                    string query = "SELECT * FROM Clientes";
+                    using (SqliteCommand command = new SqliteCommand(query, connectionString))
                     {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@Id", Id);
+                        command.Parameters.AddWithValue("@Nome", Nome);
+                        command.Parameters.AddWithValue("@CnpjCpf", CnpjCpf);
+
+                        using (SqliteDataReader reader = command.ExecuteReader())
                         {
-                            listClientes.Add(new Clientes()
+                            while (reader.Read())
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
-                                Nome = reader["Nome"].ToString(),
-                                CnpjCpf = reader["CnpjCpf"].ToString(),
-                                InscricaoEstadual = reader["InscricaoEstadual"].ToString(),
-                                Cep = reader["Cep"].ToString(),
-                                Logradouro = reader["Logradouro"].ToString(),
-                                Bairro = reader["Bairro"].ToString(),
-                                Numero = Convert.ToInt32(reader["Numero"]),
-                                Estado = reader["Estado"].ToString(),
-                                Telefone = reader["Telefone"].ToString(),
-                                Whatssap = reader["Whatssap"].ToString(),
-                                Email = reader["Email"].ToString(),
-                                Cidade = reader["Cidade"].ToString()
-                            });
+                                listClientes.Add(new Clientes()
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Nome = reader["Nome"].ToString(),
+                                    CnpjCpf = reader["CnpjCpf"].ToString(),
+                                    InscricaoEstadual = reader["InscricaoEstadual"].ToString(),
+                                    Cep = reader["Cep"].ToString(),
+                                    Logradouro = reader["Logradouro"].ToString(),
+                                    Bairro = reader["Bairro"].ToString(),
+                                    Numero = Convert.ToInt32(reader["Numero"]),
+                                    Estado = reader["Estado"].ToString(),
+                                    Telefone = reader["Telefone"].ToString(),
+                                    Whatssap = reader["Whatssap"].ToString(),
+                                    Email = reader["Email"].ToString(),
+                                    Cidade = reader["Cidade"].ToString()
+                                });
+                            }
                         }
                     }
-                }
 
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao consultar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listClientes;
         }

@@ -15,7 +15,7 @@ namespace Gen_Sim.View
     public partial class FormularioConsultarClientes : Form
     {
         ClientesController _clientesController = new ClientesController();
-        List<ClientesDto> listClientes = new List<ClientesDto>();
+        List<ClientesDto> _listClientes = new List<ClientesDto>();
         public FormularioConsultarClientes()
         {
             InitializeComponent();
@@ -36,8 +36,14 @@ namespace Gen_Sim.View
         private void FormularioConsultarClientes_Load(object sender, EventArgs e)
         {
             RbCNPJ.Checked = true;
-            DtgClientes.DataSource = listClientes;
+            DtgClientes.DataSource = _listClientes;
             //DtgClientes.DataSource = _clientesController.ReadAll();
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+            var lista = _clientesController.ReadAll();
+            DtgClientes.DataSource = lista;
         }
     }
 }

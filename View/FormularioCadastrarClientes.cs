@@ -70,14 +70,14 @@ namespace Gen_Sim.View
                     Telefone = MtbTelefone.Text,
                     Whatssap = MtbWhatssap.Text
                 };
-                if(_clientesController.Create(cliente))
+                if (_clientesController.Create(cliente))
                     ClearFields();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao registrar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-          
+
         }
 
         private void ClearFields()
@@ -95,6 +95,11 @@ namespace Gen_Sim.View
             TbCidade.Clear();
             MtbTelefone.Clear();
             MtbWhatssap.Clear();
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -314,6 +314,7 @@
             BtnCancelar.TabIndex = 25;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnCadastrar
             // 

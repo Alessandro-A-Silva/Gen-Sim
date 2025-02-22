@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using Gen_Sim.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gen_Sim.Validation
 {
@@ -12,6 +7,7 @@ namespace Gen_Sim.Validation
     {
         public ClientesValidator() 
         {
+            #region atributos
             RuleFor(cliente => cliente.Nome)
                 .NotEmpty().WithMessage("O nome é obrigatório.")
                 .Length(2, 100).WithMessage("O nome deve ter entre 2 e 100 caracteres.");
@@ -62,6 +58,7 @@ namespace Gen_Sim.Validation
             RuleFor(cliente => cliente.Email)
                 .EmailAddress().WithMessage("O e-mail deve ser válido.")
                 .When(cliente => !string.IsNullOrEmpty(cliente.Email));
+            #endregion atributos
         }
     }
 }

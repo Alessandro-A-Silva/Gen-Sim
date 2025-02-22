@@ -58,39 +58,6 @@ namespace Gen_Sim.Controller
         {
             _cliente = new Clientes();
             return _mapper.Map<List<ClientesDto>>(_cliente.ReadAll());
-            //var listClientes = _cliente.ReadAll();
-
-            //List<ClientesDto> listClientesDto = listClientes.Select(cliente => new ClientesDto()
-            //{
-            //   Id = cliente.Id,
-            //   Bairro = cliente.Bairro,
-            //   CnpjCpf = cliente.CnpjCpf,
-            //   Email = cliente.Email,
-            //   Estado = cliente.Estado,
-            //   InscricaoEstadual = cliente.InscricaoEstadual,
-            //   Logradouro = cliente.Logradouro,
-            //   Nome = cliente.Nome,
-            //   Numero = cliente.Numero,
-            //   Cidade = cliente.Cidade,
-            //   Telefone = cliente.Telefone, 
-            //   Whatssap = cliente.Whatssap
-            //}).ToList();
-
-            //return listClientes.Select(cliente => new ClientesDto()
-            //{
-            //    Id = cliente.Id,
-            //    Bairro = cliente.Bairro,
-            //    CnpjCpf = cliente.CnpjCpf,
-            //    Email = cliente.Email,
-            //    Estado = cliente.Estado,
-            //    InscricaoEstadual = cliente.InscricaoEstadual,
-            //    Logradouro = cliente.Logradouro,
-            //    Nome = cliente.Nome,
-            //    Numero = cliente.Numero,
-            //    Cidade = cliente.Cidade,
-            //    Telefone = cliente.Telefone,
-            //    Whatssap = cliente.Whatssap
-            //}).ToList();
         }
     }
 }
