@@ -59,5 +59,25 @@ namespace Gen_Sim.Controller
             _cliente = new Clientes();
             return _mapper.Map<List<ClientesDto>>(_cliente.ReadAll());
         }
+
+        public bool Update(ClientesDto dto)
+        {
+            _cliente = _mapper.Map<Clientes>(dto);
+            var validationResult = _clientesValidator.Validate(_cliente);
+            if(!validationResult.IsValid)
+            {
+                string errorMessage = string.Join(Environment.NewLine, validationResult.Errors.Select(error => error.ErrorMessage));
+                MessageBox.Show(errorMessage, "Erro de Validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else
+                return _cliente.Update();
+        }
+
+        public bool Delete(ClientesDto dto)
+        {
+            _cliente = _mapper.Map<Clientes>(dto);
+            return _cliente.Delete();
+        }
     }
 }

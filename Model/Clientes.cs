@@ -52,19 +52,15 @@ namespace Gen_Sim.Model
                         command.ExecuteNonQuery();
                     }
                 }
-
                 MessageBox.Show("Registrado com sucesso!","Dados do Cliente",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
                 return true;
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Erro ao registrar! "+ex.Message,"Dados do Cliente",MessageBoxButtons.OK,MessageBoxIcon.Error);
-
                 return false;
             }
         }
-
         public List<Clientes> ReadAll()
         {
             var listClientes = new List<Clientes>();
@@ -103,7 +99,6 @@ namespace Gen_Sim.Model
                             }
                         }
                     }
-
                 }
             }
             catch(Exception ex)
@@ -111,6 +106,66 @@ namespace Gen_Sim.Model
                 MessageBox.Show("Erro ao consultar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return listClientes;
+        }
+        public bool Update()
+        {
+            try
+            {
+                using(var connection = new SqliteConnection(DbContext.ConnectionString))
+                {
+                    connection.Open();
+                    string query = @"UPDATE Clientes 
+                                     SET Nome = @Nome, CnpjCpf = @CnpjCpf, InscricaoEstadual = @InscricaoEstadual, Cep = @Cep, Logradouro = @Logradouro, Bairro = @Bairro, Numero = @Numero, Estado = @Estado, Telefone = @Telefone,  Whatssap = @Whatssap, Email = @Email, Cidade = @Cidade 
+                                     WHERE Id = @Id";
+                    using(SqliteCommand command = new SqliteCommand(query, connection))
+                    {   
+                        command.Parameters.AddWithValue("@Id",Id);
+                        command.Parameters.AddWithValue("@Nome", Nome);
+                        command.Parameters.AddWithValue("@CnpjCpf", CnpjCpf);
+                        command.Parameters.AddWithValue("@InscricaoEstadual", InscricaoEstadual);
+                        command.Parameters.AddWithValue("@Cep", Cep);
+                        command.Parameters.AddWithValue("@Logradouro", Logradouro);
+                        command.Parameters.AddWithValue("@Bairro", Bairro);
+                        command.Parameters.AddWithValue("@Numero", Numero);
+                        command.Parameters.AddWithValue("@Estado", Estado);
+                        command.Parameters.AddWithValue("@Telefone", Telefone);
+                        command.Parameters.AddWithValue("@Whatssap", Whatssap);
+                        command.Parameters.AddWithValue("@Email", Email);
+                        command.Parameters.AddWithValue("@Cidade", Cidade);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Atualizado com sucesso!", "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public bool Delete()
+        {
+            try
+            {
+                using(var connection = new SqliteConnection(DbContext.ConnectionString))
+                {
+                    connection.Open();
+                    string query = "DELETE FROM Clientes WHERE Id = @Id";
+                    using(SqliteCommand command = new SqliteCommand(query,connection))
+                    {
+                        command.Parameters.AddWithValue("@Id", Id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Deletado com sucesso!", "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Erro ao deletar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
     }
 }

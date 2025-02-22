@@ -53,31 +53,23 @@ namespace Gen_Sim.View
 
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
-            try
+            var cliente = new ClientesDto()
             {
-                var cliente = new ClientesDto()
-                {
-                    Nome = TbNome.Text,
-                    Cep = MtbCep.Text,
-                    Logradouro = TbLogradouro.Text,
-                    Numero = (int)NudNumero.Value,
-                    Bairro = TbBairro.Text,
-                    Estado = CbEstado.Text,
-                    CnpjCpf = MtbDocumento.Text,
-                    InscricaoEstadual = MtbInscricaoEstadual.Text,
-                    Email = TbEmail.Text,
-                    Cidade = TbCidade.Text,
-                    Telefone = MtbTelefone.Text,
-                    Whatssap = MtbWhatssap.Text
-                };
-                if (_clientesController.Create(cliente))
-                    ClearFields();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao registrar! " + ex.Message, "Dados do Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+                Nome = TbNome.Text,
+                Cep = MtbCep.Text,
+                Logradouro = TbLogradouro.Text,
+                Numero = (int)NudNumero.Value,
+                Bairro = TbBairro.Text,
+                Estado = CbEstado.Text,
+                CnpjCpf = MtbDocumento.Text,
+                InscricaoEstadual = MtbInscricaoEstadual.Text,
+                Email = TbEmail.Text,
+                Cidade = TbCidade.Text,
+                Telefone = MtbTelefone.Text,
+                Whatssap = MtbWhatssap.Text
+            };
+            if (_clientesController.Create(cliente))
+                ClearFields();
         }
 
         private void ClearFields()

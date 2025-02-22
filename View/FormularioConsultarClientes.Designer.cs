@@ -39,6 +39,7 @@
             RbCNPJ = new RadioButton();
             TbNome = new TextBox();
             LbNome = new Label();
+            btnAtualizar = new Button();
             GbConsultarCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)DtgClientes).BeginInit();
             GbTipoDocumento.SuspendLayout();
@@ -46,6 +47,7 @@
             // 
             // GbConsultarCliente
             // 
+            GbConsultarCliente.Controls.Add(btnAtualizar);
             GbConsultarCliente.Controls.Add(LbClientes);
             GbConsultarCliente.Controls.Add(DtgClientes);
             GbConsultarCliente.Controls.Add(BtnPesquisar);
@@ -90,6 +92,7 @@
             DtgClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DtgClientes.Size = new Size(771, 319);
             DtgClientes.TabIndex = 26;
+            DtgClientes.CellClick += DtgClientes_CellClick;
             // 
             // BtnPesquisar
             // 
@@ -97,7 +100,7 @@
             BtnPesquisar.FlatStyle = FlatStyle.Flat;
             BtnPesquisar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnPesquisar.ForeColor = Color.White;
-            BtnPesquisar.Location = new Point(674, 47);
+            BtnPesquisar.Location = new Point(636, 47);
             BtnPesquisar.Name = "BtnPesquisar";
             BtnPesquisar.Size = new Size(111, 32);
             BtnPesquisar.TabIndex = 25;
@@ -108,7 +111,7 @@
             // MtbDocumento
             // 
             MtbDocumento.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MtbDocumento.Location = new Point(482, 50);
+            MtbDocumento.Location = new Point(444, 50);
             MtbDocumento.Name = "MtbDocumento";
             MtbDocumento.Size = new Size(186, 29);
             MtbDocumento.TabIndex = 21;
@@ -119,7 +122,7 @@
             LbDocumento.AutoSize = true;
             LbDocumento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LbDocumento.ForeColor = Color.Black;
-            LbDocumento.Location = new Point(482, 26);
+            LbDocumento.Location = new Point(444, 26);
             LbDocumento.Name = "LbDocumento";
             LbDocumento.Size = new Size(100, 21);
             LbDocumento.TabIndex = 20;
@@ -130,7 +133,7 @@
             GbTipoDocumento.Controls.Add(RbCPF);
             GbTipoDocumento.Controls.Add(RbCNPJ);
             GbTipoDocumento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            GbTipoDocumento.Location = new Point(318, 32);
+            GbTipoDocumento.Location = new Point(280, 32);
             GbTipoDocumento.Name = "GbTipoDocumento";
             GbTipoDocumento.Size = new Size(158, 50);
             GbTipoDocumento.TabIndex = 18;
@@ -166,7 +169,7 @@
             TbNome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TbNome.Location = new Point(12, 50);
             TbNome.Name = "TbNome";
-            TbNome.Size = new Size(300, 29);
+            TbNome.Size = new Size(262, 29);
             TbNome.TabIndex = 3;
             // 
             // LbNome
@@ -179,6 +182,22 @@
             LbNome.Size = new Size(57, 21);
             LbNome.TabIndex = 2;
             LbNome.Text = "Nome";
+            // 
+            // btnAtualizar
+            // 
+            btnAtualizar.BackColor = Color.MediumSeaGreen;
+            btnAtualizar.BackgroundImage = Properties.Resources.recarregar;
+            btnAtualizar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAtualizar.FlatStyle = FlatStyle.Flat;
+            btnAtualizar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAtualizar.ForeColor = Color.White;
+            btnAtualizar.Image = Properties.Resources.recarregar;
+            btnAtualizar.Location = new Point(747, 47);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(38, 32);
+            btnAtualizar.TabIndex = 28;
+            btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // FormularioConsultarClientes
             // 
@@ -213,5 +232,6 @@
         private Button BtnPesquisar;
         private Label LbClientes;
         private DataGridView DtgClientes;
+        private Button btnAtualizar;
     }
 }
