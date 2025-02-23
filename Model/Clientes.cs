@@ -30,7 +30,7 @@ namespace Gen_Sim.Model
         {
             try
             {
-                using (var connection = new SqliteConnection(DbContext.ConnectionString))
+                using (SqliteConnection connection = new SqliteConnection(DbContext.ConnectionString))
                 {
                     connection.Open();
                     string query = @"INSERT INTO Clientes (Nome, CnpjCpf, InscricaoEstadual, Cep, Logradouro, Bairro, Numero, Estado, Telefone, Whatssap, Email, Cidade)
@@ -66,16 +66,12 @@ namespace Gen_Sim.Model
             var listClientes = new List<Clientes>();
             try
             {
-                using (var connectionString = new SqliteConnection(DbContext.ConnectionString))
+                using (SqliteConnection connection = new SqliteConnection(DbContext.ConnectionString))
                 {
-                    connectionString.Open();
+                    connection.Open();
                     string query = "SELECT * FROM Clientes";
-                    using (SqliteCommand command = new SqliteCommand(query, connectionString))
+                    using (SqliteCommand command = new SqliteCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Id", Id);
-                        command.Parameters.AddWithValue("@Nome", Nome);
-                        command.Parameters.AddWithValue("@CnpjCpf", CnpjCpf);
-
                         using (SqliteDataReader reader = command.ExecuteReader())
                         {
                             while (reader.Read())
@@ -111,7 +107,7 @@ namespace Gen_Sim.Model
         {
             try
             {
-                using(var connection = new SqliteConnection(DbContext.ConnectionString))
+                using(SqliteConnection connection = new SqliteConnection(DbContext.ConnectionString))
                 {
                     connection.Open();
                     string query = @"UPDATE Clientes 
@@ -148,7 +144,7 @@ namespace Gen_Sim.Model
         {
             try
             {
-                using(var connection = new SqliteConnection(DbContext.ConnectionString))
+                using(SqliteConnection connection = new SqliteConnection(DbContext.ConnectionString))
                 {
                     connection.Open();
                     string query = "DELETE FROM Clientes WHERE Id = @Id";

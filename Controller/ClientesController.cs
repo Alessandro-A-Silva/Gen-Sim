@@ -25,25 +25,8 @@ namespace Gen_Sim.Controller
         } 
         public bool Create(ClientesDto dto)
         {   
-            _cliente = new Clientes()
-            {
-                Id = dto.Id,
-                Bairro = dto.Bairro,
-                Cep = dto.Cep,
-                CnpjCpf = dto.CnpjCpf,
-                Email = dto.Email,
-                Estado = dto.Estado,
-                InscricaoEstadual = dto.InscricaoEstadual,
-                Logradouro = dto.Logradouro,
-                Nome = dto.Nome,
-                Numero = dto.Numero,
-                Cidade = dto.Cidade,
-                Telefone = dto.Telefone,
-                Whatssap = dto.Whatssap
-            };
-
+            _cliente = _mapper.Map<Clientes>(dto);
             var validationResult = _clientesValidator.Validate(_cliente);
-
             if(!validationResult.IsValid)
             {
                 string errorMessage = string.Join(Environment.NewLine, validationResult.Errors.Select(error => error.ErrorMessage));

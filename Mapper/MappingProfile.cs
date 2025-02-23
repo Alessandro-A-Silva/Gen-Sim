@@ -45,7 +45,7 @@ namespace Gen_Sim.Mapper
                 .ForMember(dest => dest.Cidade, opt => opt.MapFrom(src => src.Cidade));
             #endregion
 
-            #region Endereco
+            #region Enderecos
             CreateMap<Enderecos, EnderecosDto>()
                 .ForMember(dest => dest.cep, opt => opt.MapFrom(src => src.cep))
                 .ForMember(dest => dest.logradouro, opt => opt.MapFrom(src => src.logradouro))
@@ -59,6 +59,22 @@ namespace Gen_Sim.Mapper
                 .ForMember(dest => dest.bairro, opt => opt.MapFrom(src => src.bairro))
                 .ForMember(dest => dest.localidade, opt => opt.MapFrom(src => src.localidade))
                 .ForMember(dest => dest.estado, opt => opt.MapFrom(src => src.estado));
+            #endregion
+
+            #region Produtos
+            CreateMap<Produtos, ProdutosDto>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Nome, opt => opt.MapFrom(src => src.Nome))
+                .ForMember(dest => dest.Descricao, opt => opt.MapFrom(src => src.Descricao))
+                .ForMember(dest => dest.Preco, opt => opt.MapFrom(src => src.Preco))
+                .ForMember(dest => dest.Estoque, opt => opt.MapFrom(src => src.Estoque));
+
+            CreateMap<ProdutosDto, Produtos>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Nome, opt => opt.MapFrom(src => src.Nome))
+                .ForMember(dest => dest.Descricao, opt => opt.MapFrom(src => src.Descricao))
+                .ForMember(dest => dest.Preco, opt => opt.MapFrom(src => src.Preco))
+                .ForMember(dest => dest.Estoque, opt => opt.MapFrom(src => src.Estoque));
             #endregion
         }
 

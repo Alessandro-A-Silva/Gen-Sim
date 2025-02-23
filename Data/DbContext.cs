@@ -34,7 +34,16 @@ namespace Gen_Sim.Data
                             Whatssap VARCHAR(11),
                             Email VARCHAR(100),
                             Cidade VARCHAR(50) NOT NULL
-                        );";
+                        );
+                        CREATE TABLE Produtos
+                        (
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            Nome VARCHAR(100) UNIQUE NOT NULL
+                            Descricao VARCHAR(100),
+                            Preco DECIMAL,
+                            Estoque INTEGER DEFAULT 0 CHECK (Estoque >= 0)
+                        )      
+                        ";
 
                     using(var command = new SqliteCommand(query,connection))
                     {
