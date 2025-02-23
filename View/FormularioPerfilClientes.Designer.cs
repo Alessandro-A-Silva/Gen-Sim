@@ -391,7 +391,7 @@
             MtbCep.Size = new Size(107, 29);
             MtbCep.TabIndex = 3;
             MtbCep.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-            MtbCep.MaskInputRejected += MtbCep_MaskInputRejected;
+            MtbCep.TextChanged += MtbCep_TextChanged;
             // 
             // LbCep
             // 

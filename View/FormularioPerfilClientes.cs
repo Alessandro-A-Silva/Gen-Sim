@@ -43,7 +43,7 @@ namespace Gen_Sim.View
 
         private void FormularioPerfilClientes_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void RbCNPJ_CheckedChanged(object sender, EventArgs e)
@@ -58,22 +58,9 @@ namespace Gen_Sim.View
                 MtbDocumento.Mask = "000.000.000-00";
         }
 
-        private async void MtbCep_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            if (MtbCep.Text.Length == 8)
-            {
-                var endereco = await _enderecoController.ReadByCep(MtbCep.Text);
-
-                TbLogradouro.Text = endereco.logradouro;
-                TbBairro.Text = endereco.bairro;
-                TbCidade.Text = endereco.localidade;
-                CbEstado.Text = endereco.estado;
-            }
-        }
-
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Você tem certeza que deseja atualizar os dados do cliente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Você tem certeza que deseja atualizar os dados do cliente?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _cliente.Nome = TbNome.Text;
                 _cliente.Cep = MtbCep.Text;
@@ -120,6 +107,19 @@ namespace Gen_Sim.View
             TbCidade.Clear();
             MtbTelefone.Clear();
             MtbWhatssap.Clear();
+        }
+
+        private async void MtbCep_TextChanged(object sender, EventArgs e)
+        {
+            if (MtbCep.Text.Length == 8)
+            {
+                var endereco = await _enderecoController.Search(new EnderecosDto() { cep = MtbCep.Text });
+
+                TbLogradouro.Text = endereco.logradouro;
+                TbBairro.Text = endereco.bairro;
+                TbCidade.Text = endereco.localidade;
+                CbEstado.Text = endereco.estado;
+            }
         }
     }
 }

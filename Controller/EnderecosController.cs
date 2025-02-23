@@ -1,4 +1,7 @@
-﻿using Gen_Sim.Dto;
+﻿using AutoMapper;
+using FluentValidation;
+using Gen_Sim.Dto;
+using Gen_Sim.Mapper;
 using Gen_Sim.Model;
 using System;
 using System.Collections.Generic;
@@ -10,18 +13,17 @@ namespace Gen_Sim.Controller
 {
     public class EnderecosController
     {   
-        private Enderecos _endereco = new Enderecos();
-        public async Task<EnderecosDto> ReadByCep(string cep)
+        private Enderecos? _endereco;
+        IMapper _mapper;
+        public EnderecosController()
         {
-            var endereco = await  _endereco.ReadByCep(cep);
-            return endereco == null ? null : new EnderecosDto()
-            {
-                cep = endereco.cep,
-                logradouro = endereco.logradouro,
-                bairro = endereco.bairro,
-                localidade = endereco.localidade,
-                estado = endereco.estado
-            };
+            MapperConfiguration _mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<MappingProfile>());
+            _mapper = _mapperConfiguration.CreateMapper();
+        }
+        public async Task<EnderecosDto> Search(EnderecosDto dto)
+        {
+            _endereco = _mapper.Map<Enderecos>(dto);
+            return _mapper.Map<EnderecosDto>(await _endereco.Search());
         }
     }
 }

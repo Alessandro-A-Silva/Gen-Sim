@@ -43,7 +43,23 @@ namespace Gen_Sim.Mapper
                 .ForMember(dest => dest.Whatssap, opt => opt.MapFrom(src => src.Whatssap))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
                 .ForMember(dest => dest.Cidade, opt => opt.MapFrom(src => src.Cidade));
-            #endregion 
+            #endregion
+
+            #region Endereco
+            CreateMap<Enderecos, EnderecosDto>()
+                .ForMember(dest => dest.cep, opt => opt.MapFrom(src => src.cep))
+                .ForMember(dest => dest.logradouro, opt => opt.MapFrom(src => src.logradouro))
+                .ForMember(dest => dest.bairro, opt => opt.MapFrom(src => src.bairro))
+                .ForMember(dest => dest.localidade, opt => opt.MapFrom(src => src.localidade))
+                .ForMember(dest => dest.estado, opt => opt.MapFrom(src => src.estado));
+
+            CreateMap<EnderecosDto, Enderecos>()
+                .ForMember(dest => dest.cep, opt => opt.MapFrom(src => src.cep))
+                .ForMember(dest => dest.logradouro, opt => opt.MapFrom(src => src.logradouro))
+                .ForMember(dest => dest.bairro, opt => opt.MapFrom(src => src.bairro))
+                .ForMember(dest => dest.localidade, opt => opt.MapFrom(src => src.localidade))
+                .ForMember(dest => dest.estado, opt => opt.MapFrom(src => src.estado));
+            #endregion
         }
 
     }

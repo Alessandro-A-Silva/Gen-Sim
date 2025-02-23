@@ -42,7 +42,7 @@ namespace Gen_Sim.View
         {
             if (MtbCep.Text.Length == 8)
             {
-                var endereco = await _enderecoController.ReadByCep(MtbCep.Text);
+                var endereco = await _enderecoController.Search(new EnderecosDto() { cep = MtbCep.Text});
 
                 TbLogradouro.Text = endereco.logradouro;
                 TbBairro.Text = endereco.bairro;
